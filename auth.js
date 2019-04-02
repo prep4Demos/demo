@@ -50,7 +50,7 @@
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
-          listMajors();
+          populateData();
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
@@ -70,3 +70,24 @@
       function handleSignoutClick(event) {
         gapi.auth2.getAuthInstance().signOut();
       }
+
+      function populateData(){
+		gapi.client.sheets.spreadsheets.values.get({
+	  spreadsheetId: '1hfonsT_K11elbfSeA1p83IkEYDG1EwyHyIHt1mBJn2E',
+	  range: 'A2:D',
+	}).then(function(response) {
+	  var range = response.result;
+	  if (range.values.length > 0) {
+		for (i = 0; i < range.values.length; i++) {
+		  var row = range.values[i];
+		  console.log(row)
+		}
+	  } else {
+		appendPre('No data found.');
+	  }
+	}, function(response) {
+	  appendPre('Error: ' + response.result.error.message);
+	});
+
+      }
+
