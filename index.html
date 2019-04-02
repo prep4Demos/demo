@@ -1,4 +1,4 @@
-<body>
+<body onload="myFunction()">
 <table>
   <thead>
     <tr>
@@ -17,7 +17,9 @@
 </table>
 <script src="https://raw.githubusercontent.com/MrOnlineCoder/sul.js/master/src/sul.js"></script>
 <script>
-  var html = SUL("selector").html();
-  SUL("selector").html("Updated content");
+  function myFunction() {
+       var html = SUL("selector").html();
+        SUL("selector").html("Updated content");
+  }
 </script>  
 </body>
