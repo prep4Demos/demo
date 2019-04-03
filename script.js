@@ -7,8 +7,7 @@ fetch(SHEETS_URL).then(function(response) {
   return response.json();
 }).then(function(responseJson) {
   docs = responseJson;
-  const handsetNames = [...new Set(docs.map(doc => doc.handset))];
-  let ul = document.querySelector('tbody');
+  let tbody = document.querySelector('tbody');
   docs.forEach(doc => {
     let tr = document.createElement("tr");
     let name = document.createElement("td");
@@ -20,6 +19,6 @@ fetch(SHEETS_URL).then(function(response) {
     tr.appendChild(name);
     tr.appendChild(phone);
     tr.appendChild(address);
-
+    tbody.appendChild(tr);
   })
 });
