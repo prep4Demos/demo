@@ -1,0 +1,7 @@
+{
+    "name": "sample-http",
+    "version": "0.0.2",
+    "dependencies": {
+        "googleapis": "^39.1.0"
+    }
+}
