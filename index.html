@@ -1,14 +1,102 @@
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script type="text/javascript" src="/js/lib/dummy.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+      <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script type="text/javascript" src="//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style id="compiled-css" type="text/css">
+      .row {
+  background: #f8f9fa;
+  margin-top: 20px;
+}
+
+.col {
+  border: solid 1px #6c757d;
+  padding: 10px;
+}
+
+  </style>
+
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">
+
+
+    window.onload=function(){
+      
+fetch('https://us-central1-d62356.cloudfunctions.net/helloworld')
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+      response.json().then(function(data) {
+        data.forEach(d => {
+        $("#data")
+					.append("<tr></tr>")
+					.append("<td>"+d.persona+"</td>"
+       						+"<td>"+d.utility+"</td>")
+        })
+        console.log(data);
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+
+
+    }
+
+</script>
+
+</head>
 <body>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Address</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
-<script src="script.js"></script>  
- </body>
+    <div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Persona</th>
+          <th scope="col">Utilities</th>
+        </tr>
+      </thead>
+      <tbody id="data">
+      <tr></tr><td>a</td><td>pasta,rivioli</td><tr></tr><td>a</td><td>pasta,abcd</td><tr></tr><td>a</td><td>spagetti</td><tr></tr><td>a</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>c</td><td>rivioli</td><tr></tr><td>c</td><td>rivioli</td><tr></tr><td>c</td><td>rivioli</td><tr></tr><td>c</td><td>rivioli</td><tr></tr><td>c</td><td>rivioli</td></tbody>
+    </table>
+  </div>
+</div>
+
+
+  
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "rL1hon0v"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+
+</body></html>
