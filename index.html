@@ -5,12 +5,6 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <script type="text/javascript" src="/js/lib/dummy.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-
       <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
       <link rel="stylesheet" type="text/css" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
       <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -18,6 +12,7 @@
       <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style id="compiled-css" type="text/css">
+	background: #fff;
       .row {
   background: #f8f9fa;
   margin-top: 20px;
@@ -38,7 +33,7 @@
 
     window.onload=function(){
       
-fetch('https://us-central1-d62356.cloudfunctions.net/helloworld')
+fetch('https://us-central1-dt1234.cloudfunctions.net/sheets')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -51,7 +46,7 @@ fetch('https://us-central1-d62356.cloudfunctions.net/helloworld')
         $("#data")
 					.append("<tr></tr>")
 					.append("<td>"+d.persona+"</td>"
-       						+"<td>"+d.utility+"</td>")
+       						+"<td>"+d.recommendation+"</td>")
         })
         console.log(data);
       });
@@ -74,29 +69,13 @@ fetch('https://us-central1-d62356.cloudfunctions.net/helloworld')
       <thead>
         <tr>
           <th scope="col">Persona</th>
-          <th scope="col">Utilities</th>
+          <th scope="col">Recommendation</th>
         </tr>
       </thead>
       <tbody id="data">
-      <tr></tr><td>a</td><td>pasta,rivioli</td><tr></tr><td>a</td><td>pasta,abcd</td><tr></tr><td>a</td><td>spagetti</td><tr></tr><td>a</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>b</td><td>spagetti</td><tr></tr><td>c</td><td>rivioli</td><tr></tr><td>c</td><td>rivioli</td><tr></tr><td>c</td><td>rivioli</td><tr></tr><td>c</td><td>rivioli</td><tr></tr><td>c</td><td>rivioli</td></tbody>
+      </tbody>
     </table>
   </div>
 </div>
-
-
-  
-  <script>
-    // tell the embed parent frame the height of the content
-    if (window.parent && window.parent.parent){
-      window.parent.parent.postMessage(["resultsFrame", {
-        height: document.body.getBoundingClientRect().height,
-        slug: "rL1hon0v"
-      }], "*")
-    }
-
-    // always overwrite window.name, in case users try to set it manually
-    window.name = "result"
-  </script>
-
-
-</body></html>
+</body>
+</html>
